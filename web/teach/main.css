@@ -3,7 +3,7 @@ html, body {
   height: 100vh;
   padding: 0;
   margin: 0;
-  background-color: darkslategrey;
+  background-color: black;
   overflow: hidden;
 }
 
@@ -38,3 +38,9 @@ p {
   font-weight: 100;
   margin-top: 0;
 }
+
+button#goaway, button#comeback {
+  float: right;
+}
+
+button#comeback { display: none; }
