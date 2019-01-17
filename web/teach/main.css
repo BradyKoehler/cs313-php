@@ -1,0 +1,40 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: darkslategrey;
+  overflow: hidden;
+}
+
+div {
+  float: left;
+  width: 31.33%;
+  height: 98%;
+  padding: 1%;
+}
+
+div#one {
+  background-color: #36b1bc;
+  font-size: 30px;
+}
+
+div#two {
+  background-color: #6a6970;
+  font-size: 20px;
+}
+
+div#three {
+  background-color: #6b5784;
+  font-size: 10px;
+}
+
+div:hover p {
+  font-weight: 700;
+}
+
+p {
+  color: white;
+  font-weight: 100;
+  margin-top: 0;
+}
