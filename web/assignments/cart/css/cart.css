@@ -1,0 +1,278 @@
+/* shared */
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  color: #393939;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+div { float: left; }
+
+div.sidebar {
+  position: absolute;
+  box-shadow: 0 0 5px #696969;
+  width: 20%;
+  min-height: 100%;
+  border-right: solid lightgrey 1px;
+}
+
+div.sidebar h1.header {
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 15px;
+  border-bottom: solid lightgrey 1px;
+}
+
+div.sidebar a {
+  text-decoration: none;
+}
+
+button.default {
+  border: solid #e7e7e7 1px;
+  border-radius: 5px;
+  padding: 2%;
+  background-color: #e7e7e7;
+  color: black;
+  cursor: pointer;
+  transition: 0.4s all;
+  margin-top: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button.default:hover {
+  background-color: #fff;
+  color: black;
+}
+
+button.primary {
+  border: solid #008CBA 1px;
+  border-radius: 5px;
+  padding: 2%;
+  background-color: #008CBA;
+  color: white;
+  cursor: pointer;
+  transition: 0.4s all;
+  margin-top: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button.primary:hover {
+  background-color: #fff;
+  color: #008CBA;
+}
+
+div.disclaimer {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+div.disclaimer button.default {
+  padding: 5px;
+}
+
+/* index.php */
+
+div.main {
+  float: right;
+  width: calc(80% - 1px);
+  height: 100%;
+  background-color: #e3e3e3;
+  overflow-y: scroll;
+}
+
+div.item {
+  width: 19%;
+  background-color: #fafafa;
+  margin: 2%;
+  padding: 1%;
+  box-shadow: 0px 0px 5px #696969;
+}
+
+div.item img {
+  width: 100%;
+}
+
+span.price {
+  display: inline-block;
+  float: right;
+}
+
+span.price::before {
+  content: '$';
+}
+
+div.item button.add {
+  float: right;
+  border: solid #4caf50 1px;
+  border-radius: 5px;
+  padding: 2%;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: 0.4s all;
+}
+
+div.item button.add:hover {
+  background-color: #fff;
+  color: #4caf50;
+}
+
+div.item[data-status="in-cart"] button.add {
+  display: none;
+}
+
+div.item button.in-cart {
+  float: right;
+  border: solid #4caf50 1px;
+  border-radius: 5px;
+  padding: 2%;
+  background-color: #fff;
+  color: #4caf50;
+  display: none;
+}
+
+div.item[data-status="in-cart"] button.in-cart {
+  display: block;
+}
+
+/* cart.php, checkout.php, complete.php */
+
+div.left, div.right {
+  width: 50%;
+}
+
+h2.header {
+  padding-left: 5%;
+  padding-top: 2%;
+  color: #696969;
+}
+
+h2.header.float {
+  float: left;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h2.header.thanks {
+  margin-top: 10%;
+}
+
+div.list-item {
+  width: 90%;
+  height: 10%;
+  margin: 2% 5%;
+  padding: 2%;
+  background-color: #fafafa;
+  box-shadow: 0px 0px 5px #696969;
+}
+
+div.list-item img {
+  width: 30%;
+  float: left;
+  padding-right: 2%;
+}
+
+div.list-item button.remove {
+  float: right;
+  border: solid #f44336 1px;
+  border-radius: 5px;
+  padding: 1%;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+  transition: 0.4s all;
+  margin-top: 10%;
+}
+
+div.list-item button.remove:hover {
+  background-color: #fff;
+  color: #f44336;
+}
+
+div.list-item.undo p {
+  display: inline-block;
+}
+
+div.list-item.undo button {
+  float: right;
+  margin-top: 5px;
+}
+
+div.right {
+  padding-left: 5%;
+  width: 45%;
+  padding-top: 5%;
+}
+
+/* checkout.php, complete.php */
+
+span#totalCost::before {
+  content: '$';
+}
+
+div.shipping {
+  width: 95%;
+  padding-left: 5%;
+  margin-bottom: 5%;
+}
+
+div.shipping label {
+  display: block;
+  margin-top: 5px;
+}
+
+div.shipping input {
+  display: block;
+  padding: 1%;
+  border-radius: 3px;
+  border: solid lightgrey 1px;
+}
+
+/* disclaimer.html */
+
+div#disclaimer {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(100, 100, 100, 0.7);
+  top: 0;
+  left: 0;
+}
+
+div.disclaimer-inner {
+  position: fixed;
+  width: 40vw;
+  margin: 2vh 1vw;
+  border: solid grey 1px;
+  background-color: white;
+  margin-left: 29vw;
+  margin-top: 28vh;
+  padding: 2%;
+}
+
+div.disclaimer-inner h2 {
+  text-transform: uppercase;
+}
+
+div.disclaimer-inner p {
+  text-align: center;
+}
+
+div.disclaimer-inner button.disclaimer {
+  float: right;
+  margin-top: 3%;
+}
