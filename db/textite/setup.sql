@@ -90,3 +90,6 @@ BEGIN
     EXECUTE 'CREATE TRIGGER updated_at_trigger BEFORE UPDATE ON ' || table_record.tablename || ' FOR EACH ROW EXECUTE PROCEDURE updated_at_func();';
   END LOOP;
 END$$;
+
+-- Insert a new admin user.
+INSERT INTO users (username, email, password, salt, admin) VALUES ('bradykoehler', 'bradykoehler@byui.edu', 'myP4$$W0RD', 'salt', true);
