@@ -10,7 +10,10 @@
 
   <div class="coming-soon">
     <h1>Coming Soon</h1>
+    <br />
+    <p><a class="underline" href="cart/">Prove 03: Shopping Cart</a></p>
 
+    <br /><br /><br />
     <p><a class="underline" href="/">Back to the main page</a></p>
   </div>
 
