@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+div {
+  float: left;
+}
+
+body {
+  padding-top: 50px;
+}
+
+div.header {
+  width: 100%;
+  border-bottom: solid lightgrey 1px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 1%;
+  background-color: white;
+  box-shadow: 0 0 5px #666;
+}
+
+div.header a {
+  text-decoration: none;
+  color: #393939;
+}
+
+div.login {
+  width: 30%;
+  height: 25%;
+  padding: 3%;
+  margin: 15% 32%;
+  border: solid lightgrey 1px;
+  box-shadow: 0 0 5px #666;
+}
+
+div.note-link {
+  margin: 2%;
+  padding: 1%;
+  border: solid lightgrey 1px;
+  box-shadow: 0 0 3px #666;
+  width: 20%;
+  transition: 0.3s all;
+}
+
+div.note-link:hover {
+  box-shadow: 0 0 5px #333;
+}
+
+div.note-link p.name {
+  font-weight: bold;
+  padding-bottom: 7px;
+}
+
+div.note-link span.size {
+  float: right;
+}
+
+div.note-view {
+  margin-left: 20%;
+  width: 54%;
+  box-shadow: 0 0 5px #666;
+  margin-top: 5%;
+  padding: 2%;
+}
+
+div.note-view .name {
+  font-weight: bold;
+  padding-bottom: 7px;
+}
+
+div.note-view .size {
+  float: right;
+}
+
+div.note-view p {
+  padding-bottom: 10px;
+}
+
+div.note-view pre {
+  border-top: solid lightgrey 1px;
+  padding-top: 15px;
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
