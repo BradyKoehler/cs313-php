@@ -16,7 +16,7 @@ $row = $result->execute();
 
 <div class="note-view">
   <p class="name"></p>
-  <?= var_dump($result); ?>
+  <?= var_dump($result); ?><br /><br />
   <?= var_dump($row); ?>
   <p>
     <span class="date">January 1, 2019</span>
