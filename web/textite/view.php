@@ -15,7 +15,7 @@ $result = $db->query("SELECT * FROM texts WHERE id=" . $_POST['id']);
 
 <div class="note-view">
   <p class="name"><?= $result[0]['name'] ?></p>
-
+  <?= var_dump($result); ?>
   <p>
     <span class="date">January 1, 2019</span>
     <span class="size">150kb</span>
