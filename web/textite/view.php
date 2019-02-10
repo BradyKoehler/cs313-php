@@ -10,7 +10,7 @@ require('shared.php');
 <?php require('header.php'); ?>
 
 <?php
-$result = $db->query('SELECT * FROM texts WHERE id=1');
+$result = $db->query('SELECT * FROM texts WHERE id=' . $_GET['id']);
 $text = $result->fetch(PDO::FETCH_ASSOC);
 ?>
 
