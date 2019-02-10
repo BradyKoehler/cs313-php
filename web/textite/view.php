@@ -1,5 +1,5 @@
 <?php
-
+require('shared.php');
 ?>
 
 <!DOCTYPE html>
