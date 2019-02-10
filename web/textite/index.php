@@ -34,7 +34,7 @@ require('shared.php');
 
 <?php
 
-foreach ($db->query('SELECT * FROM notes') as $note) {
+foreach ($db->query('SELECT * FROM texts') as $note) {
   print "<div class='note-link'><p class='name'>" . $note['name'] . "</p>";
   print "<p><span class='date'>" . $note['created_at'] . "</span>";
   print "<span class='size'>" . strlen($note['text']) . "</span></p></div>";
