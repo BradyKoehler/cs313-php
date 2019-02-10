@@ -9,8 +9,14 @@
 
 <?php require('header.php'); ?>
 
+<?php
+$result = $db->query("SELECT * FROM texts WHERE id=" . $_POST['id'] . " LIMIT 1");
+// $row = mysql_fetch_assoc($result);
+?>
+
 <div class="note-view">
   <p class="name">Note 1</p>
+  <?= $result ?>
   <p>
     <span class="date">January 1, 2019</span>
     <span class="size">150kb</span>
