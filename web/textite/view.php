@@ -15,8 +15,8 @@ $result = $db->query("SELECT * FROM texts WHERE id=" . $_POST['id'] . " LIMIT 1"
 ?>
 
 <div class="note-view">
-  <p class="name">Note 1</p>
-  <?= $result ?>
+  <p class="name"><?= $result['name'] ?></p>
+
   <p>
     <span class="date">January 1, 2019</span>
     <span class="size">150kb</span>
