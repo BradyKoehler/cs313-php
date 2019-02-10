@@ -11,7 +11,7 @@ require('shared.php');
 
 <?php
 $result = $db->query('SELECT * FROM texts WHERE id=1');
-$row = $result->execute();
+$row = $result->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <div class="note-view">
