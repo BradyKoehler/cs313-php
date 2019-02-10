@@ -11,11 +11,13 @@ require('shared.php');
 
 <?php
 $result = $db->query('SELECT * FROM texts WHERE id=1');
+$row = $result->execute();
 ?>
 
 <div class="note-view">
   <p class="name"></p>
   <?= var_dump($result); ?>
+  <?= var_dump($row); ?>
   <p>
     <span class="date">January 1, 2019</span>
     <span class="size">150kb</span>
