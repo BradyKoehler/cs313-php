@@ -10,8 +10,7 @@ require('shared.php');
 <?php require('header.php'); ?>
 
 <?php
-$result = $db->query("SELECT * FROM texts WHERE id=" . $_POST['id'] . " LIMIT 1");
-// $row = mysql_fetch_assoc($result);
+$result = $db->query("SELECT * FROM texts WHERE id=" . $_POST['id']);
 ?>
 
 <div class="note-view">
