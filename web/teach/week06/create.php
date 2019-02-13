@@ -46,7 +46,10 @@ if (isset($_POST["new_topic"])) {
   $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES($scripture_id, $topic_id)");
 }
 
-header('Location: index.php');
+$data->scripture = $db->query("SELECT * FROM scriptures WHERE id = $scripture_id");
+$data->topics = $db->query("select t.id as tid, t.name from scriptures s join xrefs x on (s.id = x.scripture_id) join topics t on (x.topic_id = t.id) where s.id = " . $scripture["id"] . ";");
+
+echo json_encode($data);
 die();
 ?>
 

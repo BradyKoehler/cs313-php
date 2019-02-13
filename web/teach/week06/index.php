@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+  <script type="text/javascript" src="../jquery-3.3.1.min.js"></script>
+</head>
+
 <body>
 
-<form action="create.php" method="post">
+<form id="scripture-form" action="create.php" method="post" onsubmit="return false;">
   <label for="book">Book</label>
   <input type="text" name="book" id="book" />
   <br />
@@ -44,7 +48,7 @@
   <input type="checkbox" name="new_topic" />
   <input type="text" name="new_topic_name" />
   <br /><br />
-  <input type="submit" value="Submit" />
+  <input id="submit" type="submit" value="Submit" />
 </form>
 
 <hr />
@@ -59,6 +63,16 @@
     ?>
   </ul>
 <?php endforeach; ?>
+
+<script type="text/javascript">
+
+$("#submit").click(function() {
+  $.post("create.php", $("#scripture-form").serialize(), function(data) {
+    alert(data);
+  });
+});
+
+</script>
 
 </body>
 
