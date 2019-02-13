@@ -73,7 +73,7 @@ $("#submit").click(function() {
     $('body').append(`<p>${data["scripture"]["book"]} ${data["scripture"]["chapter"]}:${data["scripture"]["verse"]}</p><p>${data["scripture"]["content"]}</p>`);
     var list = "<ul>";
     for (var i = 0; i < data["topics"].length; i++) {
-      list += "<li>" + data["topics"][i] + "</li>";
+      list += "<li>" + data["topics"][i]["name"] + "</li>";
     }
     list += "</ul>";
     $('body').append(list);
