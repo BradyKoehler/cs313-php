@@ -23,10 +23,10 @@ function sanitize($data) {
   return htmlspecialchars(stripslashes(trim($data)));
 }
 
-$query = "INSERT INTO scriptures (book, chapter, verse, content) VALUES ('" . $_POST['book']) . "', " .
-           sanitize($_POST['chapter']) . ", " .
-           sanitize($_POST['verse']) . ", " .
-           sanitize($_POST['content']) . ")";
+$query = "INSERT INTO scriptures (book, chapter, verse, content) VALUES ('" . $_POST['book'] . "', '" .
+           sanitize($_POST['chapter']) . "', '" .
+           sanitize($_POST['verse']) . "', '" .
+           sanitize($_POST['content']) . "')";
 var_dump($query);
 $db->query($query);
 
