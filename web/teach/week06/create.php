@@ -23,13 +23,18 @@ function sanitize($data) {
   return htmlspecialchars(stripslashes(trim($data)));
 }
 
+var_dump($_POST);
+
 $query = "INSERT INTO scriptures (book, chapter, verse, content) VALUES ('" . $_POST['book'] . "', '" .
            sanitize($_POST['chapter']) . "', '" .
            sanitize($_POST['verse']) . "', '" .
-           sanitize($_POST['content']) . "')";
+           sanitize($_POST['content']) . "') RETURNING id";
 // var_dump($query);
-$db->query($query);
+$scripture_id = $db->query($query);
 
+var_dump($scripture_id);
+
+$db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES(" . $scripture_id . ", ". $_POST['topic'] .")");
 
 ?>
 
