@@ -23,12 +23,12 @@ function sanitize($data) {
   return htmlspecialchars(stripslashes(trim($data)));
 }
 
-$db->query("INSERT INTO scriptures (book, chapter, verse, content) VALUES (" .
-           sanitize($_POST['book']) . ", " .
+$query = "INSERT INTO scriptures (book, chapter, verse, content) VALUES (" . $_POST['book']) +", " .
            sanitize($_POST['chapter']) . ", " .
            sanitize($_POST['verse']) . ", " .
-           sanitize($_POST['content']) . ")"
-          );
+           sanitize($_POST['content']) . ")";
+var_dump($query);
+$db->query($query);
 
 
 ?>
