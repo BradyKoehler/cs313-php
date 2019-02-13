@@ -32,7 +32,7 @@ $query = "INSERT INTO scriptures (book, chapter, verse, content) VALUES ('" . $_
 // var_dump($query);
 $db->query($query);
 $scripture_id = $db->lastInsertId();
-var_dump($scripture_id);
+// var_dump($scripture_id);
 
 // $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES(" . $scripture_id . ", ". $_POST['topic'] .")");
 
@@ -46,7 +46,7 @@ if (isset($_POST["new_topic"])) {
   $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES($scripture_id, $topic_id)");
 }
 
-$data->scripture = $db->query("SELECT * FROM scriptures WHERE id = $scripture_id");
+$data->scripture = $db->query("SELECT * FROM scriptures WHERE id = $scripture_id")->fetch(PDO::FETCH_ASSOC);
 $data->topics = $db->query("select t.id as tid, t.name from scriptures s join xrefs x on (s.id = x.scripture_id) join topics t on (x.topic_id = t.id) where s.id = " . $scripture["id"] . ";");
 
 echo json_encode($data);
