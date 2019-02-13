@@ -38,9 +38,9 @@
   }
 
   foreach ($db->query('SELECT * FROM topics') as $topic) {
-    echo '<input type="checkbox" name="topic" value="$topic" /> $topic<br />';
+    echo "<input type='checkbox' name='topic' value='$topic' /> $topic<br />";
   }
-   ?>
+  ?>
   <br /><br />
   <input type="submit" value="Submit" />
 </form>
