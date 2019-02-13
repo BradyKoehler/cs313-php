@@ -57,7 +57,7 @@
   <p><?= $scripture["book"]; ?> <?= $scripture["chapter"] ?>:<?= $scripture["verse"] ?></p>
   <p>&nbsp;&nbsp;&nbsp;<?= $scripture["content"] ?></p>
   <ul>
-    <?php foreach ($db->query("select t.id as tid, t.name from scriptures s join xrefs x on (s.id = x.scripture_id) join topics t on (x.topic_id = t.id) where s.id = " . $scripture["id"] . ";") as $topic) {
+    <?php foreach ($db->query("select t.name from scriptures s join xrefs x on (s.id = x.scripture_id) join topics t on (x.topic_id = t.id) where s.id = " . $scripture["id"] . ";") as $topic) {
       echo "<li>" . $topic["name"] . "</li>";
     }
     ?>
@@ -69,6 +69,14 @@
 $("#submit").click(function() {
   $.post("create.php", $("#scripture-form").serialize(), function(data) {
     alert(data);
+    data = JSON.parse(data);
+    $('body').append(`<p>${data["scripture"]["book"]} ${data["scripture"]["chapter"]}:${data["scripture"]["verse"]}</p><p>${data["scripture"]["content"]}</p>`);
+    var list = "<ul>";
+    for (var i = 0; i < data["topics"].length; i++) {
+      list += "<li>" + data["topics"][i] + "</li>";
+    }
+    list += "</ul>";
+    $('body').append(list);
   });
 });
 
