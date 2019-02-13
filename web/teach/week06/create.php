@@ -30,8 +30,8 @@ $query = "INSERT INTO scriptures (book, chapter, verse, content) VALUES ('" . $_
            sanitize($_POST['verse']) . "', '" .
            sanitize($_POST['content']) . "') RETURNING id";
 // var_dump($query);
-$scripture_id = $db->query($query);
-
+$db->query($query);
+$scripture_id = $db->lastInsertId();
 var_dump($scripture_id);
 
 $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES(" . $scripture_id . ", ". $_POST['topic'] .")");
