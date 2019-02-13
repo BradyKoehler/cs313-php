@@ -40,7 +40,8 @@ $db->query($query);
 
 
 <?php foreach ($db->query('SELECT * FROM scriptures') as $scripture): ?>
-  <p><?= $scripture["name"]; ?></p>
+  <p><?= $scripture["book"]; ?> <?= $scripture["chapter"] ?>:<?= $scripture["verse"] ?></p>
+  <p>&nbsp;&nbsp;&nbsp;<?= $scripture["content"] ?></p>
   <ul>
   </ul>
 <?php endforeach; ?>
