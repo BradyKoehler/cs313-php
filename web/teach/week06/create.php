@@ -50,6 +50,10 @@ $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES( " . $scripture_id
   <p><?= $scripture["book"]; ?> <?= $scripture["chapter"] ?>:<?= $scripture["verse"] ?></p>
   <p>&nbsp;&nbsp;&nbsp;<?= $scripture["content"] ?></p>
   <ul>
+    <?php foreach ($db->query('select t.id as tid, t.name from scriptures s join xrefs x on (s.id = x.scripture_id) join topics t on (x.topic_id = t.id);') as $topic) {
+      echo "<li>" . $topic["name"] . "</li>";
+    }
+    ?>
   </ul>
 <?php endforeach; ?>
 
