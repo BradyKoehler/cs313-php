@@ -27,7 +27,7 @@ $query = "INSERT INTO scriptures (book, chapter, verse, content) VALUES ('" . $_
            sanitize($_POST['chapter']) . "', '" .
            sanitize($_POST['verse']) . "', '" .
            sanitize($_POST['content']) . "')";
-var_dump($query);
+// var_dump($query);
 $db->query($query);
 
 
@@ -42,10 +42,6 @@ $db->query($query);
 <?php foreach ($db->query('SELECT * FROM scriptures') as $scripture): ?>
   <p><?= $scripture["name"]; ?></p>
   <ul>
-    <?php foreach ($db->query('SELECT t.id, t.name FROM scriptures s ' .
-                              'JOIN xrefs x on (s.id = x.scripture_id) JOIN topics t on (x.topic_id = t.id)') as $topic): ?>
-    <li><?= $topic["name"]; ?></li>
-    <?php endforeach; ?>
   </ul>
 <?php endforeach; ?>
 
