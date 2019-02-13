@@ -40,6 +40,11 @@ foreach ($_POST['topic'] as $topic) {
   $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES( " . $scripture_id . ", $topic)");
 }
 
+if (isset($_POST["new_topic"])) {
+  $db->query("INSERT INTO topics (name) VALUES ('" . $_POST["new_topic_name"] . "')");
+  $topic_id = $db->lastInsertId();
+  $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES($scripture_id, $topic_id)");
+}
 
 ?>
 

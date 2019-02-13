@@ -41,6 +41,8 @@
     echo "<input type='checkbox' name='topic[]' value='" . $topic["id"] . "' /> " . $topic["name"] . "<br />";
   }
   ?>
+  <input type="checkbox" name="new_topic" />
+  <input type="text" name="new_topic_name" />
   <br /><br />
   <input type="submit" value="Submit" />
 </form>
