@@ -36,7 +36,10 @@ var_dump($scripture_id);
 
 // $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES(" . $scripture_id . ", ". $_POST['topic'] .")");
 
-$db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES( " . $scripture_id . ", ". $_POST['topic'] .")");
+foreach ($_POST['topic'] as $topic) {
+  $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES( " . $scripture_id . ", $topic)");
+}
+
 
 ?>
 
