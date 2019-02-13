@@ -47,7 +47,7 @@ if (isset($_POST["new_topic"])) {
 }
 
 $data->scripture = $db->query("SELECT * FROM scriptures WHERE id = $scripture_id")->fetch(PDO::FETCH_ASSOC);
-$data->topics = $db->query("select t.id as tid, t.name from scriptures s join xrefs x on (s.id = x.scripture_id) join topics t on (x.topic_id = t.id) where s.id = " . $scripture["id"] . ";")->fetch(PDO::FETCH_ASSOC);
+$data->topics = $db->query("select t.id as tid, t.name from scriptures s join xrefs x on (s.id = x.scripture_id) join topics t on (x.topic_id = t.id) where s.id = " . $scripture["id"] . ";")->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode($data);
 die();
