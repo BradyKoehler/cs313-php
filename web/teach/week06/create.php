@@ -46,8 +46,8 @@ if (isset($_POST["new_topic"])) {
   $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES($scripture_id, $topic_id)");
 }
 
-header('index.php');
-
+header('Location: index.php');
+die();
 ?>
 
 <!DOCTYPE html>
