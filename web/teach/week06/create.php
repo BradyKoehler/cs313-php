@@ -38,7 +38,6 @@ $db->query("INSERT INTO scriptures (book, chapter, verse, content) VALUES (" .
 
 <body>
 
-  <p><?= var_dump($_POST); ?></p>
 
 <?php foreach ($db->query('SELECT * FROM scriptures') as $scripture): ?>
   <p><?= $scripture["name"]; ?></p>
