@@ -36,9 +36,7 @@ var_dump($scripture_id);
 
 // $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES(" . $scripture_id . ", ". $_POST['topic'] .")");
 
-$db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES((
-  SELECT id FROM scriptures WHERE book = '" . $_POST['book'] . "' AND chapter = '" . $_POST['chapter'] . "'
-), ". $_POST['topic'] .")");
+$db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES( " . $scripture_id . ", ". $_POST['topic'] .")");
 
 ?>
 
