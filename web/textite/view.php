@@ -13,6 +13,7 @@ require('shared.php');
 $result = $db->query('SELECT * FROM texts WHERE id=' . $_GET['id']);
 $text = $result->fetch(PDO::FETCH_ASSOC);
 ?>
+<div class='container'>
 
 <div class="note-view">
   <p class="name"><?= $text['name']; ?></p>
@@ -23,6 +24,10 @@ $text = $result->fetch(PDO::FETCH_ASSOC);
   <pre>
     <?= $text['content']; ?>
   </pre>
+  <a href="edit.php?id=<?= $text['id']; ?>"><button class="edit">Edit</button></a>
+  <a href="delete.php?id=<?= $text['id']; ?>"><button class="delete">Delete</button></a>
+</div>
+
 </div>
 
 </body>

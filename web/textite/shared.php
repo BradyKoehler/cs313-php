@@ -5,7 +5,7 @@ $dbUrl = getenv('DATABASE_URL');
 
 if (empty($dbUrl)) {
  // example localhost configuration URL with postgres username and a database called cs313db
- $dbUrl = "postgres://postgres:Skrayzx-33@localhost:5432/textite";
+ $dbUrl = "postgres://postgres:T3l3m3+ry@localhost:5432/textite";
 }
 
 $dbopts = parse_url($dbUrl);
@@ -21,7 +21,8 @@ $dbName = ltrim($dbopts["path"],'/');
 // print "<p>pgsql:host=$dbHost;port=$dbPort;dbname=$dbName</p>\n\n";
 
 try {
- $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+  // $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName;user=$dbUser;password=$dbPassword");
 }
 catch (PDOException $ex) {
  print "<p>error: $ex </p>\n\n";
@@ -32,5 +33,9 @@ catch (PDOException $ex) {
 // {
 //  print "<p>$row[0]</p>\n\n";
 // }
+
+function sanitize($data) {
+  return htmlspecialchars(stripslashes(trim($data)));
+}
 
 ?>
