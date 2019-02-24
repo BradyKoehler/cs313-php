@@ -1,5 +1,14 @@
 <?php
 
+function startSession() {
+  session_start();
+  $_SESSION['started'] = true;
+}
+
+if (!isset($_SESSION['started'])) {
+  startSession();
+}
+
 // default Heroku Postgres configuration URL
 $dbUrl = getenv('DATABASE_URL');
 
@@ -36,6 +45,17 @@ catch (PDOException $ex) {
 
 function sanitize($data) {
   return htmlspecialchars(stripslashes(trim($data)));
+}
+
+function logged_in() {
+  return isset($_SESSION['user']);
+}
+
+function require_logged_in() {
+  if (!logged_in()) {
+    header("Location: /textite/sessions/new.php");
+    die();
+  }
 }
 
 ?>

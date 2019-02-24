@@ -81,7 +81,7 @@ div.note-link span.size {
 }
 
 div.note-view {
-  margin-left: 20%;
+  margin-left: 7%;
   width: 54%;
   box-shadow: 0 0 5px #666;
   padding: 2%;
@@ -111,6 +111,26 @@ div.note-view pre {
   white-space: -pre-wrap;      /* Opera 4-6 */
   white-space: -o-pre-wrap;    /* Opera 7 */
   word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+div.text-notes {
+  width: 25%;
+  margin-left: 5%;
+}
+
+div.text-notes div.note-new textarea {
+  width: 100%;
+}
+
+div.text-notes div.note-new button {
+  float: right;
+}
+
+div.text-notes div.note {
+  width: 94%;
+  padding: 3%;
+  margin-bottom: 15px;
+  box-shadow: 0 0 5px #666;
 }
 
 /* TEXTS/NEW */
