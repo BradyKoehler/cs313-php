@@ -1,6 +1,4 @@
-<?php
-require('shared.php');
-?>
+<?php require('shared.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +19,7 @@ $statement->execute();
 <div class="note-view" data-id="<?= $text['id'] ?>">
   <p class="name">
     <?= $text['name']; ?>
-    <span style="float: right;">Views: <?= $text['views'] + 1 ?></span>
+    <span class="right">Views: <?= $text['views'] + 1 ?></span>
   </p>
   <p><em><?= $text['username'] ?></em></p>
   <p>
@@ -31,8 +29,10 @@ $statement->execute();
   <pre>
     <?= $text['content']; ?>
   </pre>
+  <?php if (logged_in() AND $text['username'] == $_SESSION['user']): ?>
   <a href="edit.php?id=<?= $text['id']; ?>"><button class="edit">Edit</button></a>
-  <a href="delete.php?id=<?= $text['id']; ?>" style="float: right;"><button class="delete">Delete</button></a>
+  <a href="delete.php?id=<?= $text['id']; ?>"><button class="delete">Delete</button></a>
+  <?php endif ?>
 </div>
 
 <div class="text-notes">
@@ -46,7 +46,7 @@ $statement->execute();
   <div class="note">
     <p>
       <a href="users/view.php?id=<?= $note['user_id'] ?>"><?= $note['username'] ?></a>
-      <span style="float: right;"><?= $note['created_at'] ?></span>
+      <span class="right"><?= $note['created_at'] ?></span>
     </p>
     <p><?= $note['content'] ?></p>
   </div>

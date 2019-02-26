@@ -2,13 +2,17 @@
 
 require('shared.php');
 
+require_logged_in();
+
+$user_id = current_user_id($db);
 $name = sanitize($_POST['name']);
 $content = sanitize($_POST['content']);
 
-$query = "INSERT INTO texts (user_id, name, content) VALUES (1, :name, :content)";
+$query = "INSERT INTO texts (user_id, name, content) VALUES (:user_id, :name, :content)";
 
 $statement = $db->prepare($query);
 
+$statement->bindValue(':user_id', $user_id);
 $statement->bindValue(':name', $name);
 $statement->bindValue(':content', $content);
 

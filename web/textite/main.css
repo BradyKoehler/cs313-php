@@ -13,12 +13,12 @@ html, body {
   overflow-x: hidden;
 }
 
-div {
-  float: left;
+a:visited {
+  color: black;
 }
 
-body {
-  /* padding-top: 50px; */
+div {
+  float: left;
 }
 
 div.container {
@@ -120,9 +120,15 @@ div.text-notes {
 
 div.text-notes div.note-new textarea {
   width: 100%;
+  border: solid lightgrey 1px;
 }
 
 div.text-notes div.note-new button {
+  float: right;
+  margin-top: 5px;
+}
+
+.right {
   float: right;
 }
 
@@ -148,4 +154,52 @@ div.text-new textarea {
   border: 0;
   font-family: Arial sans-serif;
   resize: vertical;
+}
+
+/* BUTTONS */
+
+button, input[type="submit"] {
+  padding: 4px;
+  border-radius: 3px;
+  border: solid lightgrey 1px;
+  background-color: #dfdfdf;
+  transition: 0.3s all;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+button.edit {
+  border-color: #ff9400;
+  background-color: #ffc826;
+}
+
+button.edit:hover {
+  background-color: #ffd55b;
+}
+
+button.delete {
+  float: right;
+  border-color: #f44336;
+  background-color: #ff695e;
+}
+
+button.delete:hover {
+  background-color: #ffa49e;
+}
+
+form.block {
+  margin-left: 50px;
+}
+
+form.block label {
+  display: block;
+}
+
+input[type="text"], input[type="password"] {
+  padding: 4px;
+  border-radius: 2px;
+  border: solid lightgrey 1px;
 }

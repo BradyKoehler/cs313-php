@@ -11,7 +11,6 @@ $statement = $db->prepare($query);
 $statement->bindValue(':id', $id);
 
 if ($statement->execute()) {
-  // ensure text exists
   if ($statement->rowCount() == 1) {
     $text = $statement->fetch();
   } else {

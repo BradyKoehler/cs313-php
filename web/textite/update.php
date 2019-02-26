@@ -11,7 +11,6 @@ $statement = $db->prepare($query);
 $statement->bindValue(':id', $id);
 
 if ($statement->execute()) {
-  // ensure text exists
   if ($statement->rowCount() == 1) {
     $query = "UPDATE texts SET name = :name, content = :content WHERE id = :id";
     $statement = $db->prepare($query);
@@ -26,17 +25,11 @@ if ($statement->execute()) {
     if ($statement->execute()) {
       header("Location: view.php?id=$id");
       die();
-    } else {
-      echo "Could not update text";
-      die();
     }
-  } else {
-    echo "Could not update text";
-    die();
   }
-} else {
-  echo "Could not update text";
-  die();
 }
+
+echo "Could not update text";
+die();
 
 ?>

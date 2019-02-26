@@ -41,12 +41,12 @@ if (isset($_POST['email']) AND isset($_POST['password'])) {
 
 <div class='container'>
 
-<form action="new.php" method="post">
-  <label for="email">Email:</label>
+<form class="block" action="new.php" method="post">
+  <label for="email">Email</label>
   <input type="text" name="email" id="email" required />
   <br /><br />
 
-  <label for="password">Password:</label>
+  <label for="password">Password</label>
   <input type="password" name="password" id="password" required />
   <br /><br />
 

@@ -2,17 +2,6 @@
 require('../shared.php');
 
 require_logged_in();
-//
-// $query = "INSERT INTO scriptures (book, chapter, verse, content) VALUES ('" . $_POST['book'] . "', '" .
-//            sanitize($_POST['chapter']) . "', '" .
-//            sanitize($_POST['verse']) . "', '" .
-//            sanitize($_POST['content']) . "') RETURNING id";
-// // var_dump($query);
-// $db->query($query);
-// $scripture_id = $db->lastInsertId();
-// // var_dump($scripture_id);
-//
-// // $db->query("INSERT INTO xrefs (scripture_id, topic_id) VALUES(" . $scripture_id . ", ". $_POST['topic'] .")");
 
 $username = $_SESSION["user"];
 $text_id = sanitize($_POST['id']);
@@ -35,7 +24,7 @@ if ($statement->execute()) {
   $statement->bindValue(":note_id", $note_id);
   $statement->execute();
   $note = $statement->fetch();
-  // echo json_encode($note);
+
   $data = new stdClass();
   $data->user_id = $note['user_id'];
   $data->content = $note['content'];
@@ -60,7 +49,7 @@ if (isset($_POST["new_topic"])) {
 }
 
 $data->scripture = $db->query("SELECT * FROM scriptures WHERE id = $scripture_id")->fetch(PDO::FETCH_ASSOC);
-$query2 = $db->prepare("select t.id as tid, t.name from scriptures s join xrefs x on (s.id = x.scripture_id) join topics t on (x.topic_id = t.id) where s.id = " . $scripture_id . ";");
+$query2 = $db->prepare("SELECT t.id AS tid, t.name FROM scriptures s JOIN xrefs x ON (s.id = x.scripture_id) JOIN topics t ON (x.topic_id = t.id) WHERE s.id = " . $scripture_id . ";");
 $query2->execute();
 $results = $query2->fetchAll(PDO::FETCH_ASSOC);
 $data->topics = $results;
